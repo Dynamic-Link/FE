@@ -9,6 +9,10 @@ import { AddLinkForm } from "./components/AddLinkForm/AddLinkForm";
 
 import { UserContext } from "./context/UserContext";
 
+import { ThemeProvider } from "@material-ui/styles";
+import useTheme from "./styles/theme";
+import { createMuiTheme } from "@material-ui/core";
+
 // import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 
@@ -16,17 +20,21 @@ const App = () => {
   const [user, setUser] = useState("");
   const [clicked, setClicked] = useState(0);
 
+  const theme = createMuiTheme(useTheme);
+
   return (
     // <Header />
     <Router>
-      <Switch>
-        <UserContext.Provider value={{ user, setUser, clicked, setClicked }}>
-          <Route exact path="/" component={Home} />
-          <Route path="/signIn" component={SignIn} />
-          <Route path="/signUp" component={SignUp} />
-          <Route path="/addLink" component={AddLinkForm} />
-        </UserContext.Provider>
-      </Switch>
+      <ThemeProvider theme={theme}>
+        <Switch>
+          <UserContext.Provider value={{ user, setUser, clicked, setClicked }}>
+            <Route exact path="/" component={Home} />
+            <Route path="/signIn" component={SignIn} />
+            <Route path="/signUp" component={SignUp} />
+            <Route path="/addLink" component={AddLinkForm} />
+          </UserContext.Provider>
+        </Switch>
+      </ThemeProvider>
     </Router>
     // <Footer />
   );

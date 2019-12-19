@@ -1,10 +1,23 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import {
+  Container,
+  Col,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button
+} from "reactstrap";
+import { Typography } from "@material-ui/core";
+
+import RegistrationStyles from "./RegistrationStyles";
 
 const SignUp = props => {
-  const baseURL = "http://localhost:8080";
-  let loading = props.loading;
+  const classes = RegistrationStyles();
+
+  const baseURL = "http://localhost:3000";
   let [firstName, setFirstName] = useState("");
   let [lastName, setLastName] = useState("");
   let [email, setEmail] = useState("");
@@ -48,7 +61,6 @@ const SignUp = props => {
           props.history.push("/signIn");
         } else {
           setSignUpError(res.data.message);
-          loading = false;
         }
       })
       .catch(err => {
@@ -57,39 +69,86 @@ const SignUp = props => {
   };
   return (
     <div>
-      <h2>Sign Up</h2>
-      <input
-        type="text"
-        placeholder="First Name"
-        value={firstName}
-        onChange={onChangeFirstName}
-      />
-      <input
-        type="text"
-        placeholder="Last Name"
-        value={lastName}
-        onChange={onChangeLastName}
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={onChangeEmail}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={onChangePassword}
-      />
-      <button onClick={() => onSignUp()}>Sign Up</button>
-      {signUpError ? <p>{signUpError}</p> : null}
-      <div>
-        <p>Already have an account?</p>
-        <Link to="/signIn">
-          <p>Sign In</p>
-        </Link>
+      <div className={classes.barContainer}>
+        <div className={classes.logo}>
+          <div className={classes.smallCircle}></div>
+          <Typography variant="h1">SmartLinks</Typography>
+        </div>
+        <div className={classes.topBarTextContainer}>
+          <p className={classes.topBarText}>Already have an account?</p>
+          <Link to="/signIn">
+            <Button className={classes.topBarButton}>Sign In</Button>
+          </Link>
+        </div>
       </div>
+      <Container className={classes.container}>
+        <div className={classes.circle}></div>
+        <div className={classes.formContainer}>
+          <Typography variant="h1" className={classes.formTitle}>
+            Sign Up
+          </Typography>
+          <Form className={classes.form}>
+            <Col>
+              <FormGroup>
+                <Label className={classes.label}>First Name</Label>
+                <Input
+                  className={classes.input}
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name"
+                  value={firstName}
+                  onChange={onChangeFirstName}
+                />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Label className={classes.label}>Last Name</Label>
+                <Input
+                  className={classes.input}
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name"
+                  value={lastName}
+                  onChange={onChangeLastName}
+                />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Label className={classes.label}>Email</Label>
+                <Input
+                  className={classes.input}
+                  type="email"
+                  name="email"
+                  placeholder="myemail@email.com"
+                  value={email}
+                  onChange={onChangeEmail}
+                />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Label className={classes.label}>Password</Label>
+                <Input
+                  className={classes.input}
+                  type="password"
+                  name="password"
+                  placeholder="********"
+                  value={password}
+                  onChange={onChangePassword}
+                />
+              </FormGroup>
+            </Col>
+            <div className={classes.buttonDiv}>
+              <Button className={classes.formButton} onClick={() => onSignUp()}>
+                Sign Up
+              </Button>
+              {signUpError ? <p>{signUpError}</p> : null}
+            </div>
+          </Form>
+        </div>
+      </Container>
     </div>
   );
 };
