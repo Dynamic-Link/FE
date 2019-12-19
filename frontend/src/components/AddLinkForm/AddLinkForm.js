@@ -2,12 +2,22 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { UserContext } from "./../../context/UserContext";
+import {
+  Container,
+  Col,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button
+} from "reactstrap";
+// import "./App.css";
 
 export const AddLinkForm = props => {
   const { user, setUser } = useContext(UserContext);
   const { clicked, setClicked } = useContext(UserContext);
 
-  const baseURL = "http://localhost:8080";
+  const baseURL = "http://localhost:3000";
   let [linkName, setLinkName] = useState("");
   let [product, setProduct] = useState("");
   let [promotions, setPromotions] = useState("");
@@ -77,6 +87,7 @@ export const AddLinkForm = props => {
     <div>
       <h2>Add Link</h2>
       <Link to="/">Dashboard</Link>
+
       <input
         type="text"
         placeholder="Link Name"

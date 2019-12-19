@@ -9,7 +9,7 @@ const Home = props => {
   let [token, setToken] = useState("");
   const { user, setUser } = useContext(UserContext);
 
-  const baseURL = "http://localhost:8080";
+  const baseURL = "http://localhost:3000";
 
   //Setting the token
   useEffect(() => {
