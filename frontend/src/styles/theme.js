@@ -9,8 +9,8 @@ const useTheme = {
     },
     h2: {
       fontSize: "2rem",
-      fontWeight: "700",
-      color: "#52AB1A",
+      fontWeight: "500",
+      color: "#006FD7",
       letterSpacing: ".2rem"
     },
     h3: {

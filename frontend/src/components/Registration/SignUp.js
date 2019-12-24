@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import {
@@ -16,8 +17,8 @@ import RegistrationStyles from "./RegistrationStyles";
 
 const SignUp = props => {
   const classes = RegistrationStyles();
+  const { baseURL } = useContext(UserContext);
 
-  const baseURL = "http://localhost:3000";
   let [firstName, setFirstName] = useState("");
   let [lastName, setLastName] = useState("");
   let [email, setEmail] = useState("");
@@ -41,6 +42,7 @@ const SignUp = props => {
   };
 
   const onSignUp = () => {
+    // console.log(firstName, lastName, email, password);
     axios
       .post(
         `${baseURL}/api/account/signup`,
@@ -57,11 +59,7 @@ const SignUp = props => {
         }
       )
       .then(res => {
-        if (res.data.success) {
-          props.history.push("/signIn");
-        } else {
-          setSignUpError(res.data.message);
-        }
+        props.history.push("/signIn");
       })
       .catch(err => {
         console.log(err);
