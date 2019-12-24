@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../../context/UserContext";
+
 import axios from "axios";
 import { Link } from "react-router-dom";
 import {
@@ -16,8 +18,8 @@ import RegistrationStyles from "./RegistrationStyles";
 
 const SignIn = props => {
   const classes = RegistrationStyles();
+  const { baseURL } = useContext(UserContext);
 
-  const baseURL = "http://localhost:3000";
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [signInError, setSignInError] = useState("");

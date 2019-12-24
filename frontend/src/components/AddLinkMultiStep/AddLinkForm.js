@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { UserContext } from "./../../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 import {
   Container,
   Col,
@@ -14,10 +14,11 @@ import {
 // import "./App.css";
 
 export const AddLinkForm = props => {
-  const { user, setUser } = useContext(UserContext);
-  const { clicked, setClicked } = useContext(UserContext);
+  const { user, setUser, clicked, setClicked, baseURL } = useContext(
+    UserContext
+  );
+  const token = localStorage.getItem("token");
 
-  const baseURL = "http://localhost:3000";
   let [linkName, setLinkName] = useState("");
   let [product, setProduct] = useState("");
   let [promotions, setPromotions] = useState("");
@@ -54,7 +55,7 @@ export const AddLinkForm = props => {
     setClicked(clicked + 1);
     axios
       .post(
-        `${baseURL}/api/addLink`,
+        `${baseURL}/api/links/addLink`,
         {
           email: user.email,
           linkName,
@@ -66,7 +67,8 @@ export const AddLinkForm = props => {
         },
         {
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
           }
         }
       )

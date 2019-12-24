@@ -2,26 +2,64 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { UserContext } from "./../../context/UserContext";
 import { Link } from "react-router-dom";
+import DashboardStyles from "./DashboardStyles";
+import { Typography } from "@material-ui/core";
 
 const Dashboard = props => {
-  const { user, setUser, clicked, setClicked } = useContext(UserContext);
+  const classes = DashboardStyles();
+  const { user, setUser, clicked, setClicked, baseURL } = useContext(
+    UserContext
+  );
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    const headers = { token: props.token };
-    console.log("dashboard effect");
-    console.log("user", user);
-    console.log(clicked);
     axios
-      .get(`${props.baseURL}/api/account/getUser`, {
-        headers
+      .get(`${baseURL}/api/account/getUser`, {
+        headers: { Authorization: `Bearer ${token}` }
       })
-      .then(res => setUser(res.data))
+      .then(res => {
+        setUser(res.data);
+      })
       .catch(err => console.log(err));
   }, [clicked]);
 
   return (
-    <div>
-      <h1>Dashboard</h1>
+    <div className={classes.container}>
+      <Typography variant="h2" style={{ margin: "4rem 0rem", color: "gray" }}>
+        Dashboard
+      </Typography>
+      <div className={classes.statBoxContainer}>
+        <div className={classes.statBox}>
+          <i
+            class="fad fa-link"
+            style={{ fontSize: "4.5rem", gridColumn: "1/3", margin: "0 auto" }}
+          />
+          <div className={classes.statBoxText}>
+            <p className={classes.statBoxTextNumber}>0</p>
+            <p className={classes.statBoxTextHeading}>Total Links</p>
+          </div>
+        </div>
+        <div className={classes.statBox}>
+          <i
+            class="fad fa-bullseye-pointer"
+            style={{ fontSize: "4.5rem", gridColumn: "1/3", margin: "0 auto" }}
+          />
+          <div className={classes.statBoxText}>
+            <p className={classes.statBoxTextNumber}>0</p>
+            <p className={classes.statBoxTextHeading}>Total Clicks</p>
+          </div>
+        </div>
+        <div className={classes.statBox}>
+          <i
+            class="fad fa-users"
+            style={{ fontSize: "4.5rem", gridColumn: "1/3", margin: "0 auto" }}
+          />
+          <div className={classes.statBoxText}>
+            <p className={classes.statBoxTextNumber}>0</p>
+            <p className={classes.statBoxTextHeading}>Unique Users</p>
+          </div>
+        </div>
+      </div>
       <p>{user.firstName}</p>
       <p>{user.lastName}</p>
       <p>{user.email}</p>
