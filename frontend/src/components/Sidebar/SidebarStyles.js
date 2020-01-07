@@ -2,12 +2,12 @@ import { makeStyles } from "@material-ui/core";
 
 const SidebarStyles = makeStyles(theme => ({
   container: {
-    border: "1px solid black",
     height: "100vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "10px 0px"
+    padding: "10px 0px",
+    borderRight: "1px solid black"
   },
   logoContainer: {
     display: "flex",
