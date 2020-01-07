@@ -1,11 +1,15 @@
 import { makeStyles } from "@material-ui/core";
 
 const DashboardStyles = makeStyles(theme => ({
+  pageContainer: {
+    display: "grid",
+    gridTemplateColumns: "repeat(7,1fr)"
+  },
   container: {
-    border: "1px solid red",
-    gridColumn: "2/9",
+    gridColumn: "2/8",
     padding: "0rem 4rem",
-    backgroundColor: "rgb(240, 240, 240)"
+    backgroundColor: "rgb(240, 240, 240)",
+    borderRight: "1px solid black"
   },
   statBoxContainer: {
     display: "grid",

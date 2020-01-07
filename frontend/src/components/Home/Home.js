@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SignUp from "../Registration/SignUp";
 import Dashboard from "../Dashboard/Dashboard";
-import Sidebar from "../Sidebar/Sidebar";
 import HomeStyles from "./HomeStyles";
 
 const Home = props => {
@@ -27,7 +26,6 @@ const Home = props => {
 
   return (
     <div className={classes.homeContainer}>
-      <Sidebar />
       <Dashboard />
     </div>
   );
