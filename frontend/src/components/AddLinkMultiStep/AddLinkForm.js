@@ -87,6 +87,7 @@ export const AddLinkForm = props => {
 
   return (
     <div>
+      {console.log("hi")}
       <h2>Add Link</h2>
       <Link to="/">Dashboard</Link>
 

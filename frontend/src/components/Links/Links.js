@@ -41,29 +41,39 @@ const Links = props => {
               Create New Link
             </Button>
           </div>
-          <div className={classes.searchAndSort}>
-            <input type="search" placeholder="Search" />
+          <div className={classes.searchContainer}>
+            <input
+              type="search"
+              placeholder="Search"
+              className={classes.searchInput}
+            />
+          </div>
 
-            <div className={classes.sortList}>
-              <p>Sort by: </p>
-              <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-                <DropdownToggle caret>{sort}</DropdownToggle>
-                <DropdownMenu>
-                  <DropdownItem onClick={() => setSort("Product Name")}>
-                    Product Name
-                  </DropdownItem>
-                  <DropdownItem onClick={() => setSort("Date")}>
-                    Date
-                  </DropdownItem>
-                  <DropdownItem onClick={() => setSort("Total Clicks")}>
-                    Total Clicks
-                  </DropdownItem>
-                  <DropdownItem onClick={() => setSort("Unique Users")}>
-                    Unique Users
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </div>
+          <div className={classes.sortList}>
+            <p className={classes.sortBy}>Sort by: </p>
+            <Dropdown
+              isOpen={dropdownOpen}
+              toggle={toggle}
+              style={{ width: "50%" }}
+            >
+              <DropdownToggle style={{ width: "100%" }} caret>
+                {sort}
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem onClick={() => setSort("Product Name")}>
+                  Product Name
+                </DropdownItem>
+                <DropdownItem onClick={() => setSort("Date")}>
+                  Date
+                </DropdownItem>
+                <DropdownItem onClick={() => setSort("Total Clicks")}>
+                  Total Clicks
+                </DropdownItem>
+                <DropdownItem onClick={() => setSort("Unique Users")}>
+                  Unique Users
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
           </div>
         </div>
 

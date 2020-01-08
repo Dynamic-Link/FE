@@ -17,17 +17,11 @@ const LinksStyles = makeStyles(theme => ({
   },
   topBar: {
     display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)"
+    gridTemplateColumns: "repeat(4, 1fr)",
+    marginBottom: "2rem"
   },
-  searchAndSort: {
-    gridColumn: "3/5",
-    display: "flex",
-    justifyContent: "space-between",
-    paddingBottom: "4rem"
-  },
-  sortList: {
-    display: "flex",
-    alignItems: "center"
+  addButton: {
+    gridColumn: "1/2"
   },
   linkBox: {
     border: "1px solid darkgray",
@@ -44,6 +38,24 @@ const LinksStyles = makeStyles(theme => ({
   },
   notes: {
     gridColumn: "1/5"
+  },
+  searchContainer: {
+    gridColumn: "3/4",
+    display: "flex"
+  },
+  searchInput: {
+    display: "flex",
+    width: "70%"
+  },
+  sortList: {
+    display: "flex",
+    alignItems: "center",
+    gridColumn: "4/5",
+    justifyContent: "flex-end"
+  },
+  sortBy: {
+    fontSize: "1.8rem",
+    marginRight: "1rem"
   }
 }));
 

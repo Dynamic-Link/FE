@@ -48,7 +48,11 @@ const SidebarStyles = makeStyles(theme => ({
     alignItems: "center"
   },
   tabText: {
-    gridColumn: "3/7"
+    gridColumn: "3/7",
+    fontSize: "1.7rem"
+  },
+  userName: {
+    fontSize: "1.7rem"
   },
   icon: {
     fontSize: "3rem"
