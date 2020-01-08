@@ -34,7 +34,7 @@ const Sidebar = props => {
           <div className={classes.tab}>
             <i
               class="fad fa-chart-area"
-              style={{ fontSize: "1.6rem", gridColumn: "2/3" }}
+              style={{ fontSize: "1.7rem", gridColumn: "2/3" }}
             ></i>
             <Typography className={classes.tabText}>Dashboard</Typography>
           </div>
@@ -43,7 +43,7 @@ const Sidebar = props => {
           <div className={classes.tab}>
             <i
               class="fad fa-link"
-              style={{ fontSize: "1.6rem", gridColumn: "2/3" }}
+              style={{ fontSize: "1.7rem", gridColumn: "2/3" }}
             />
             <Typography className={classes.tabText}>All Links</Typography>
           </div>
@@ -52,7 +52,7 @@ const Sidebar = props => {
           <div className={classes.tab}>
             <i
               class="fad fa-layer-group"
-              style={{ fontSize: "1.6rem", gridColumn: "2/3" }}
+              style={{ fontSize: "1.7rem", gridColumn: "2/3" }}
             ></i>
             <Typography className={classes.tabText}>Product List</Typography>
           </div>

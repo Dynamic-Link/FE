@@ -8,6 +8,7 @@ import SignUp from "./components/Registration/SignUp";
 import Links from "./components/Links/Links";
 import Products from "./components/Products/Products";
 import { AddLinkForm } from "./components/AddLinkMultiStep/AddLinkForm";
+import AddLinkMultiStep from "./components/AddLinkMultiStep/AddLinkMultiStep";
 
 import { UserContext } from "./context/UserContext";
 
@@ -36,7 +37,7 @@ const App = () => {
             <Route exact path="/" component={Home} />
             <Route path="/signIn" component={SignIn} />
             <Route path="/signUp" component={SignUp} />
-            <Route path="/addLink" component={AddLinkForm} />
+            <Route path="/addLink" component={AddLinkMultiStep} />
             <Route path="/links" component={Links} />
             <Route path="/products" component={Products} />
           </UserContext.Provider>
