@@ -6,14 +6,17 @@ const AddLinkStepOne = ({
   updateStep,
   linkInfo,
   setLinkInfo,
-  handleStepOneChange
+  handleFormChange
 }) => {
   const classes = StepOneStyles();
 
   return (
     <div className={classes.container}>
       <div className={classes.topBar}>
-        <button onClick={() => updateStep("add")}>next</button>
+        <div className={classes.next} onClick={() => updateStep("add")}>
+          <p className={classes.nextText}>Next</p>
+          <i style={{ height: " 0.9rem" }} class="fas fa-chevron-right"></i>
+        </div>
       </div>
       <div className={classes.contentContainer}>
         <div className={classes.contentLeft}>
@@ -24,7 +27,7 @@ const AddLinkStepOne = ({
               name="linkName"
               className={classes.inputText}
               value={linkInfo.linkName}
-              onChange={handleStepOneChange}
+              onChange={handleFormChange}
             />
           </div>
           <div className={classes.linkCreated}>
@@ -41,30 +44,32 @@ const AddLinkStepOne = ({
               name="product"
               className={classes.inputText}
               value={linkInfo.product}
-              onChange={handleStepOneChange}
+              onChange={handleFormChange}
             />
           </div>
 
           <div>
-            <p className={classes.title}>Promotion: (optional)</p>
+            <p className={classes.title} style={{ marginTop: "2rem" }}>
+              Promotion: (optional)
+            </p>
             <input
               type="text"
               name="promotion"
               className={classes.inputText}
               value={linkInfo.promotion}
-              onChange={handleStepOneChange}
+              onChange={handleFormChange}
             />
           </div>
         </div>
         <div className={classes.contentRight}>
           <div className={classes.notesContent}>
-            <p>Notes: (optional)</p>
-            <input
-              type="textArea"
+            <p className={classes.title}>Notes: (optional)</p>
+            <textarea
               placeholder="Notes"
               name="notes"
               value={linkInfo.notes}
-              onChange={handleStepOneChange}
+              onChange={handleFormChange}
+              className={classes.notesBox}
             />
           </div>
         </div>

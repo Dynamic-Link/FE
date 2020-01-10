@@ -42,7 +42,7 @@ const AddLinkMultiStepStyles = makeStyles(theme => ({
     alignItems: "center"
   },
   wrapper: {
-    width: "85%"
+    width: "80%"
   }
 }));
 
