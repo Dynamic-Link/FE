@@ -53,9 +53,11 @@ const AddLinkMultiStep = () => {
   return (
     <div>
       <div>
-        <Breadcrumb>
+        <Breadcrumb className={classes.breadcrumbBackground}>
           <BreadcrumbItem>
-            <a href="/">All Links</a>
+            <a href="/" className={classes.pastBreadcrumb}>
+              All Links
+            </a>
           </BreadcrumbItem>
           <BreadcrumbItem active>Create New Link</BreadcrumbItem>
         </Breadcrumb>
@@ -65,10 +67,8 @@ const AddLinkMultiStep = () => {
           <CustomStepper activeStep={step} />
           <div className={classes.wrapper}>
             <AddLinkStepOne
-              step={step}
               updateStep={updateStep}
               linkInfo={linkInfo}
-              setLinkInfo={setLinkInfo}
               handleFormChange={handleFormChange}
             />
           </div>
@@ -78,11 +78,9 @@ const AddLinkMultiStep = () => {
           <CustomStepper activeStep={step} />
           <div className={classes.wrapper}>
             <AddLinkStepTwo
-              step={step}
               updateStep={updateStep}
               handleFormChange={handleFormChange}
               linkInfo={linkInfo}
-              setLinkInfo={setLinkInfo}
             />
           </div>
         </div>
@@ -91,10 +89,8 @@ const AddLinkMultiStep = () => {
           <CustomStepper activeStep={step} />
           <div className={classes.wrapper}>
             <AddLinkStepThree
-              step={step}
               updateStep={updateStep}
               linkInfo={linkInfo}
-              setLinkInfo={setLinkInfo}
               handleFormChange={handleFormChange}
               subDestination={subDestination}
               setSubDestination={setSubDestination}

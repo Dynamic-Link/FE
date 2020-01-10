@@ -3,11 +3,8 @@ import StepThreeStyles from "./StepThreeStyles";
 import { Link } from "react-router-dom";
 
 const AddLinkStepThree = ({
-  step,
   updateStep,
   linkInfo,
-  setLinkInfo,
-  handleFormChange,
   subDestination,
   setSubDestination
 }) => {
