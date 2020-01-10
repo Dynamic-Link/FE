@@ -1,13 +1,7 @@
 import React from "react";
 import StepOneStyles from "./StepOneStyles";
 
-const AddLinkStepOne = ({
-  step,
-  updateStep,
-  linkInfo,
-  setLinkInfo,
-  handleFormChange
-}) => {
+const AddLinkStepOne = ({ updateStep, linkInfo, handleFormChange }) => {
   const classes = StepOneStyles();
 
   return (

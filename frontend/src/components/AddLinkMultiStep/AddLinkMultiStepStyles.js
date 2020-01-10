@@ -43,6 +43,27 @@ const AddLinkMultiStepStyles = makeStyles(theme => ({
   },
   wrapper: {
     width: "80%"
+  },
+  breadcrumbBackground: {
+    "& ol": {
+      backgroundColor: "#f2f2f2",
+      padding: "1.75rem 1rem",
+      marginTop: "2rem",
+      "& li": {
+        fontSize: "1.6rem",
+        "& a": {
+          "&:hover": {
+            textDecoration: "none"
+          }
+        }
+      }
+    }
+  },
+  pastBreadcrumb: {
+    color: "lightgray",
+    "&:hover": {
+      color: "lightgray"
+    }
   }
 }));
 
