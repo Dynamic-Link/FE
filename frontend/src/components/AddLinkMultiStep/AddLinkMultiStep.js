@@ -7,11 +7,13 @@ import AddLinkStepTwo from "./AddLinkStepTwo";
 import AddLinkStepThree from "./AddLinkStepThree";
 import CustomStepper from "../Stepper/CustomStepper";
 import AddLinkMultiStepStyles from "./AddLinkMultiStepStyles";
+import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 
 const AddLinkMultiStep = () => {
   const classes = AddLinkMultiStepStyles();
 
   const [step, setStep] = useState(0);
+  const [subDestination, setSubDestination] = useState(false);
   const [linkInfo, setLinkInfo] = useState({
     linkName: "",
     product: "",
@@ -32,7 +34,7 @@ const AddLinkMultiStep = () => {
     operation === "add" ? setStep(step + 1) : setStep(step - 1);
   };
 
-  const handleStepOneChange = e => {
+  const handleFormChange = e => {
     setLinkInfo({ ...linkInfo, [e.target.name]: e.target.value });
   };
 
@@ -48,43 +50,59 @@ const AddLinkMultiStep = () => {
   //     );
   //   };
 
-  return step === 0 ? (
-    <div className={classes.root}>
-      <CustomStepper activeStep={step} />
-      <div className={classes.wrapper}>
-        <AddLinkStepOne
-          step={step}
-          updateStep={updateStep}
-          linkInfo={linkInfo}
-          setLinkInfo={setLinkInfo}
-          handleStepOneChange={handleStepOneChange}
-        />
+  return (
+    <div>
+      <div>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <a href="/">All Links</a>
+          </BreadcrumbItem>
+          <BreadcrumbItem active>Create New Link</BreadcrumbItem>
+        </Breadcrumb>
       </div>
-    </div>
-  ) : step === 1 ? (
-    <div className={classes.second}>
-      <CustomStepper activeStep={step} />
-      <div className={classes.wrapper}>
-        <AddLinkStepTwo
-          step={step}
-          updateStep={updateStep}
-          //   profiles={profiles}
-          //   setProfiles={setProfiles}
-          //   handleChanges={handleChanges}
-        />
-      </div>
-    </div>
-  ) : (
-    <div className={classes.third}>
-      <CustomStepper activeStep={step} />
-      <div className={classes.wrapper}>
-        <AddLinkStepThree
-          step={step}
-          updateStep={updateStep}
-          //   profiles={profiles}
-          //   info={info}
-        />
-      </div>
+      {step === 0 ? (
+        <div className={classes.root}>
+          <CustomStepper activeStep={step} />
+          <div className={classes.wrapper}>
+            <AddLinkStepOne
+              step={step}
+              updateStep={updateStep}
+              linkInfo={linkInfo}
+              setLinkInfo={setLinkInfo}
+              handleFormChange={handleFormChange}
+            />
+          </div>
+        </div>
+      ) : step === 1 ? (
+        <div className={classes.second}>
+          <CustomStepper activeStep={step} />
+          <div className={classes.wrapper}>
+            <AddLinkStepTwo
+              step={step}
+              updateStep={updateStep}
+              handleFormChange={handleFormChange}
+              linkInfo={linkInfo}
+              setLinkInfo={setLinkInfo}
+            />
+          </div>
+        </div>
+      ) : (
+        <div className={classes.third}>
+          <CustomStepper activeStep={step} />
+          <div className={classes.wrapper}>
+            <AddLinkStepThree
+              step={step}
+              updateStep={updateStep}
+              linkInfo={linkInfo}
+              setLinkInfo={setLinkInfo}
+              handleFormChange={handleFormChange}
+              subDestination={subDestination}
+              setSubDestination={setSubDestination}
+            />
+          </div>
+        </div>
+      )}
+      ;
     </div>
   );
 };
