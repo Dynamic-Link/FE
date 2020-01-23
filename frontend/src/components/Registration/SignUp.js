@@ -12,6 +12,7 @@ import {
   Button
 } from "reactstrap";
 import { Typography } from "@material-ui/core";
+import signUpImage from "./../../images/signUp.svg";
 
 import RegistrationStyles from "./RegistrationStyles";
 
@@ -80,7 +81,7 @@ const SignUp = props => {
         </div>
       </div>
       <Container className={classes.container}>
-        <div className={classes.circle}></div>
+        <img src={signUpImage} alt="signUp" className={classes.image} />
         <div className={classes.formContainer}>
           <Typography variant="h1" className={classes.formTitle}>
             Sign Up

@@ -8,7 +8,7 @@ const DashboardStyles = makeStyles(theme => ({
   container: {
     gridColumn: "2/8",
     padding: "0rem 4rem",
-    backgroundColor: "rgb(240, 240, 240)",
+    backgroundColor: "#f1f0f5",
     borderRight: "1px solid black"
   },
   statBoxContainer: {
@@ -37,7 +37,7 @@ const DashboardStyles = makeStyles(theme => ({
   },
   breadcrumbBackground: {
     "& ol": {
-      backgroundColor: "#f2f2f2",
+      backgroundColor: "#f1f0f5",
       padding: "0",
       margin: "4rem 0rem",
       "& li": {

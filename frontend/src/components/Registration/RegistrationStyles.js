@@ -83,7 +83,13 @@ const RegistrationStyles = makeStyles(theme => ({
     alignItems: "center"
   },
   formContainer: {
-    maxWidth: "75%"
+    maxWidth: "100%",
+    paddingLeft: "25%",
+    paddingTop: "15%"
+  },
+  image: {
+    width: "120%",
+    height: "100%"
   },
   formTitle: {
     textAlign: "center",

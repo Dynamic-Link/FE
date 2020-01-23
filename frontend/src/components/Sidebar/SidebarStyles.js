@@ -2,6 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const SidebarStyles = makeStyles(theme => ({
   container: {
+    backgroundColor: "#336ab6",
     height: "100vh",
     display: "flex",
     flexDirection: "column",
@@ -47,21 +48,28 @@ const SidebarStyles = makeStyles(theme => ({
     gridTemplateColumns: "repeat(6, 1fr)",
     alignItems: "center",
     "&:hover": {
-      backgroundColor: "rgb(240,240,240)"
+      backgroundColor: "#f2f2f2",
+      "& p": {
+        color: "#595959"
+      },
+      "& i": {
+        color: "#e4572d"
+      }
     },
     "& i": {
       fontSize: "1.7rem",
       gridColumn: "2/3",
-      color: "#9caccd"
+      color: "white"
     }
   },
   tabText: {
     gridColumn: "3/7",
     fontSize: "1.7rem",
-    color: "#9caccd"
+    color: "white"
   },
   userName: {
-    fontSize: "1.7rem"
+    fontSize: "1.7rem",
+    color: "#f2f2f2"
   },
   logOutButton: {
     position: "absolute",
