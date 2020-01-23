@@ -13,17 +13,18 @@ const Sidebar = props => {
     localStorage.removeItem("token");
     props.history.push("/signIn");
   };
-  return (
+
+  return user[0] ? (
     <div className={classes.container}>
       <div className={classes.logoContainer}>
         <div className={classes.smallCircle}></div>
-        <Typography variant="h2">SmartLinks</Typography>
+        <Typography variant="h3">SmartLinks</Typography>
       </div>
       <div className={classes.userSection}>
         <div className={classes.circle}></div>
         <Typography className={classes.userName}>
-          {user.firstName ? (
-            `${user.firstName} ${user.lastName}`
+          {user[0].firstName ? (
+            `${user[0].firstName} ${user[0].lastName}`
           ) : (
             <p>Loading...</p>
           )}{" "}
@@ -32,28 +33,19 @@ const Sidebar = props => {
       <div className={classes.tabsSection}>
         <Link to="/" style={{ textDecoration: "none" }}>
           <div className={classes.tab}>
-            <i
-              class="fad fa-chart-area"
-              style={{ fontSize: "1.7rem", gridColumn: "2/3" }}
-            ></i>
+            <i class="fad fa-chart-area"></i>
             <Typography className={classes.tabText}>Dashboard</Typography>
           </div>
         </Link>
         <Link to="/links" style={{ textDecoration: "none" }}>
           <div className={classes.tab}>
-            <i
-              class="fad fa-link"
-              style={{ fontSize: "1.7rem", gridColumn: "2/3" }}
-            />
+            <i class="fad fa-link" />
             <Typography className={classes.tabText}>All Links</Typography>
           </div>
         </Link>
         <Link to="/products" style={{ textDecoration: "none" }}>
           <div className={classes.tab}>
-            <i
-              class="fad fa-layer-group"
-              style={{ fontSize: "1.7rem", gridColumn: "2/3" }}
-            ></i>
+            <i class="fad fa-layer-group"></i>
             <Typography className={classes.tabText}>Product List</Typography>
           </div>
         </Link>
@@ -66,7 +58,7 @@ const Sidebar = props => {
         Sign Out
       </Button>
     </div>
-  );
+  ) : null;
 };
 
 export default Sidebar;

@@ -34,6 +34,46 @@ const DashboardStyles = makeStyles(theme => ({
   },
   statBoxTextHeading: {
     fontSize: "1.8rem"
+  },
+  breadcrumbBackground: {
+    "& ol": {
+      backgroundColor: "#f2f2f2",
+      padding: "0",
+      margin: "4rem 0rem",
+      "& li": {
+        fontSize: "2.4rem",
+        "& a": {
+          "&:hover": {
+            textDecoration: "none"
+          }
+        }
+      }
+    }
+  },
+  mapContainer: {
+    marginTop: "5rem",
+    border: "1px solid black",
+    display: "grid",
+    gridTemplateColumns: "repeat(7,1fr)",
+    padding: "0rem 2rem",
+    backgroundColor: "white"
+  },
+  mapLeftSide: {
+    gridColumn: "1/5",
+    display: "flex",
+    flexDirection: "column"
+  },
+  mapRightSide: {
+    gridColumn: "5/8"
+  },
+  mapTitleAndLogo: {
+    display: "flex",
+    fontSize: "2.4rem",
+    padding: "2rem 0rem",
+    alignItems: "center"
+  },
+  mapTitle: {
+    marginLeft: "2rem"
   }
 }));
 

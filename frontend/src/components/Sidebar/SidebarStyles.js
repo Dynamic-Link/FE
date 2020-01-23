@@ -41,21 +41,27 @@ const SidebarStyles = makeStyles(theme => ({
     width: "100%"
   },
   tab: {
-    margin: "10px 0px",
+    padding: "2rem 0px",
     display: "grid",
     gridGap: "1rem",
     gridTemplateColumns: "repeat(6, 1fr)",
-    alignItems: "center"
+    alignItems: "center",
+    "&:hover": {
+      backgroundColor: "rgb(240,240,240)"
+    },
+    "& i": {
+      fontSize: "1.7rem",
+      gridColumn: "2/3",
+      color: "#9caccd"
+    }
   },
   tabText: {
     gridColumn: "3/7",
-    fontSize: "1.7rem"
+    fontSize: "1.7rem",
+    color: "#9caccd"
   },
   userName: {
     fontSize: "1.7rem"
-  },
-  icon: {
-    fontSize: "3rem"
   },
   logOutButton: {
     position: "absolute",
