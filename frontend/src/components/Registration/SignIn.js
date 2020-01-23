@@ -47,7 +47,7 @@ const SignIn = props => {
         }
       )
       .then(res => {
-        if (res.data.success) {
+        if (res.data.token) {
           localStorage.setItem("token", res.data.token);
           props.history.push("/");
         } else {

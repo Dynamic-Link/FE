@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
+import axios from "axios";
 import StepThreeStyles from "./StepThreeStyles";
 import { Link } from "react-router-dom";
 
@@ -9,6 +11,44 @@ const AddLinkStepThree = ({
   setSubDestination
 }) => {
   const classes = StepThreeStyles();
+  const { baseURL } = useContext(UserContext);
+
+  const addLink = linkObj => {
+    const token = localStorage.getItem("token");
+    const {
+      linkName,
+      product,
+      defaultUrl,
+      utmParameters,
+      promotions,
+      notes
+    } = linkObj;
+    axios
+      .post(
+        `${baseURL}/api/links`,
+        {
+          linkName: linkName,
+          product: product,
+          promotions: promotions,
+          notes: notes,
+          defaultUrl: defaultUrl,
+          utmParameters: utmParameters
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token
+          }
+        }
+      )
+      .then(res => {
+        console.log(res);
+        // props.history.push("/links");
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className={classes.container}>
@@ -17,8 +57,15 @@ const AddLinkStepThree = ({
           <i style={{ height: " 0.9rem" }} class="fas fa-chevron-left"></i>
           <p className={classes.backText}>Back</p>
         </div>
-        <Link to="/" className={classes.next}>
-          <button className={classes.createButton}>Create Link</button>
+        <Link to="/links" className={classes.next}>
+          <button
+            className={classes.createButton}
+            onClick={() => {
+              addLink(linkInfo);
+            }}
+          >
+            Create Link
+          </button>
         </Link>
       </div>
       <div className={classes.contentContainer}>

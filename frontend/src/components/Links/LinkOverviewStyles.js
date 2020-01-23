@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-const LinksStyles = makeStyles(theme => ({
+const LinkOverviewStyles = makeStyles(theme => ({
   pageContainer: {
     display: "grid",
     gridTemplateColumns: "repeat(7,1fr)"
@@ -74,4 +74,4 @@ const LinksStyles = makeStyles(theme => ({
   }
 }));
 
-export default LinksStyles;
+export default LinkOverviewStyles;

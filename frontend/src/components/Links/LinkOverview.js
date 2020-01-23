@@ -1,21 +1,15 @@
 import React, { useContext, useState } from "react";
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from "reactstrap";
 import { UserContext } from "../../context/UserContext";
 import Sidebar from "../Sidebar/Sidebar";
 import LinksStyles from "./LinksStyles";
 import { Button } from "reactstrap";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 
-const Links = props => {
+const LinkOverview = props => {
   const classes = LinksStyles();
   const { user } = useContext(UserContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [sort, setSort] = useState("Link Name");
+  const [sort, setSort] = useState("Product Name");
 
   const toggle = () => setDropdownOpen(prevState => !prevState);
 
@@ -50,34 +44,10 @@ const Links = props => {
               className={classes.searchInput}
             />
           </div>
-
-          <div className={classes.sortList}>
-            <p className={classes.sortBy}>Sort by: </p>
-            <Dropdown
-              isOpen={dropdownOpen}
-              toggle={toggle}
-              style={{ width: "50%" }}
-            >
-              <DropdownToggle style={{ width: "100%" }} caret>
-                {sort}
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem onClick={() => setSort("Link Name")}>
-                  Link Name
-                </DropdownItem>
-                <DropdownItem onClick={() => setSort("Total Clicks")}>
-                  Total Clicks
-                </DropdownItem>
-                <DropdownItem onClick={() => setSort("Unique Users")}>
-                  Unique Users
-                </DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-          </div>
         </div>
-        {console.log(user)}
-        {user
-          ? user[0].links.map(link => {
+
+        {user.links !== undefined
+          ? user.links.map(link => {
               return (
                 <div className={classes.linkBox}>
                   <h2 className={classes.linkName}>{link.linkName}</h2>
@@ -87,7 +57,6 @@ const Links = props => {
                   <div className={classes.clicksAndUsers}>
                     <p className={classes.notes}>Notes: {link.notes}</p>
                     <p>Total Clicks</p>
-                    <p></p>
                     <p>Unique Users</p>
                   </div>
                 </div>
@@ -99,13 +68,4 @@ const Links = props => {
   );
 };
 
-// User: {
-//   name: name
-//   links: [
-//     arrayIds
-//   ]
-// }
-
-// Links: Link to users id
-
-export default Links;
+export default LinkOverview;

@@ -15,8 +15,9 @@ const useTheme = {
     },
     h3: {
       fontSize: "1.6rem",
-      fontWeight: "700",
-      color: "#52AB1A"
+      fontWeight: "500",
+      color: "#006fd7",
+      letterSpacing: ".2rem"
     },
     h4: {
       fontSize: "1.8rem",
