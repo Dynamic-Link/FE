@@ -32,7 +32,18 @@ const LinksStyles = makeStyles(theme => ({
     gridColumn: "1/2"
   },
   linkBoxContainer: {
-    display: "flex"
+    display: "flex",
+    "& span": {
+      minWidth: "5px",
+      // padding: "1.2rem, 0rem",
+      marginBottom: "2rem"
+    },
+    "&:hover": {
+      "& span": {
+        backgroundImage: "linear-gradient(180deg, #e4572d, #b8351c, #811810)",
+        borderRadius: "5px 0px 0px 5px"
+      }
+    }
   },
   linkBox: {
     backgroundColor: "#f7f8fa",
@@ -40,13 +51,9 @@ const LinksStyles = makeStyles(theme => ({
     padding: "1.2rem",
     marginBottom: "2rem",
     borderRadius: "3px 0px 0px 3px",
-    width: "100%",
-
-    "&:hover": {
-      backgroundImage: "linear-gradient(180deg, #e4572d, #b8351c, #811810)",
-      borderRadius: "5px 0px 0px 5px"
-    }
+    width: "100%"
   },
+
   linkName: {
     fontSize: "2.4rem"
   },

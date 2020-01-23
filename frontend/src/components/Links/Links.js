@@ -75,7 +75,7 @@ const Links = props => {
           ? user[0].links.map(link => {
               return (
                 <div className={classes.linkBoxContainer}>
-                  <div className={classes.hoveredBox}>&nbsp</div>
+                  <span className={classes.hoveredBox}></span>
                   <div className={classes.linkBox}>
                     <h2 className={classes.linkName}>{link.linkName}</h2>
 
