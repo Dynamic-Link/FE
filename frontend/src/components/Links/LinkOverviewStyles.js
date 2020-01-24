@@ -11,52 +11,20 @@ const LinkOverviewStyles = makeStyles(theme => ({
     backgroundColor: "rgb(240, 240, 240)",
     borderRight: "1px solid black"
   },
-  newLinkButton: {
-    fontSize: "1.4rem",
-    padding: "0.5rem 2rem"
-  },
   topBar: {
-    display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
-    marginBottom: "2rem"
+    border: "1px solid red"
   },
-  addButton: {
-    gridColumn: "1/2"
-  },
-  linkBox: {
-    border: "1px solid darkgray",
-    padding: "1.2rem",
-    marginBottom: "2rem",
-    backgroundColor: "white"
-  },
-  linkName: {
-    fontSize: "2.4rem"
-  },
-  clicksAndUsers: {
-    display: "grid",
-    gridTemplateColumns: "repeat(6,1fr)"
-  },
-  notes: {
-    gridColumn: "1/5"
-  },
-  searchContainer: {
-    gridColumn: "3/4",
-    display: "flex"
-  },
-  searchInput: {
+  overviewAndDestinations: {
     display: "flex",
-    width: "70%"
+    fontSize: "1.6rem",
+    fontWeight: "500",
+    color: "#121212"
   },
-  sortList: {
-    display: "flex",
-    alignItems: "center",
-    gridColumn: "4/5",
-    justifyContent: "flex-end"
-  },
-  sortBy: {
-    fontSize: "1.8rem",
+  overviewText: {
     marginRight: "1rem"
   },
+  destinationsText: {},
+
   breadcrumbBackground: {
     "& ol": {
       backgroundColor: "#f2f2f2",
