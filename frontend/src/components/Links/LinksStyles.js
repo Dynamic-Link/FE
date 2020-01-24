@@ -13,7 +13,7 @@ const LinksStyles = makeStyles(theme => ({
   },
   newLinkButton: {
     fontSize: "1.4rem",
-    padding: "1rem 3rem",
+    padding: "0.5rem 2rem",
     borderRadius: "5px",
     backgroundImage: "linear-gradient(90deg , #0092d9, #006fd7, #004dab)",
     border: "none",
@@ -39,6 +39,7 @@ const LinksStyles = makeStyles(theme => ({
       marginBottom: "2rem"
     },
     "&:hover": {
+      cursor: "pointer",
       "& span": {
         backgroundImage: "linear-gradient(180deg, #e4572d, #b8351c, #811810)",
         borderRadius: "5px 0px 0px 5px"

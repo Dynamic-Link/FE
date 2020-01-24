@@ -20,10 +20,10 @@ const DashboardStyles = makeStyles(theme => ({
   statBox: {
     display: "grid",
     gridTemplateColumns: "repeat(5,1fr)",
-    backgroundColor: "white",
     alignItems: "center",
-    border: "1px solid black",
-    padding: "2rem 0rem"
+    padding: "2rem 0rem",
+    boxShadow: "0px 2px 4px rgba(14,30,37,0.12)",
+    backgroundColor: "#f7f8fa"
   },
   statBoxText: {
     gridColumn: "3/6"
@@ -52,11 +52,11 @@ const DashboardStyles = makeStyles(theme => ({
   },
   mapContainer: {
     marginTop: "5rem",
-    border: "1px solid black",
     display: "grid",
     gridTemplateColumns: "repeat(7,1fr)",
     padding: "0rem 2rem",
-    backgroundColor: "white"
+    boxShadow: "0px 2px 4px rgba(14,30,37,0.12)",
+    backgroundColor: "#f7f8fa"
   },
   mapLeftSide: {
     gridColumn: "1/5",

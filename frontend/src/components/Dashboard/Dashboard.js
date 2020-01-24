@@ -16,7 +16,9 @@ const Dashboard = props => {
       <div className={classes.container}>
         <div>
           <Breadcrumb className={classes.breadcrumbBackground}>
-            <BreadcrumbItem active>Dashboard</BreadcrumbItem>
+            <BreadcrumbItem active>
+              <Typography variant="h2">Dashboard</Typography>
+            </BreadcrumbItem>
           </Breadcrumb>
         </div>
         <div className={classes.statBoxContainer}>
@@ -26,14 +28,15 @@ const Dashboard = props => {
               style={{
                 fontSize: "4.5rem",
                 gridColumn: "1/3",
-                margin: "0 auto"
+                margin: "0 auto",
+                color: "#336ab6"
               }}
             />
             <div className={classes.statBoxText}>
               <p className={classes.statBoxTextNumber}>
                 {user ? user[0].links.length : null}
               </p>
-              <p className={classes.statBoxTextHeading}>Total Links</p>
+              <Typography variant="caption">Total Links</Typography>
             </div>
           </div>
           <div className={classes.statBox}>
@@ -42,12 +45,13 @@ const Dashboard = props => {
               style={{
                 fontSize: "4.5rem",
                 gridColumn: "1/3",
-                margin: "0 auto"
+                margin: "0 auto",
+                color: "#336ab6"
               }}
             />
             <div className={classes.statBoxText}>
               <p className={classes.statBoxTextNumber}>0</p>
-              <p className={classes.statBoxTextHeading}>Total Clicks</p>
+              <Typography variant="caption">Total Clicks</Typography>
             </div>
           </div>
           <div className={classes.statBox}>
@@ -56,19 +60,23 @@ const Dashboard = props => {
               style={{
                 fontSize: "4.5rem",
                 gridColumn: "1/3",
-                margin: "0 auto"
+                margin: "0 auto",
+                color: "#336ab6"
               }}
             />
             <div className={classes.statBoxText}>
               <p className={classes.statBoxTextNumber}>0</p>
-              <p className={classes.statBoxTextHeading}>Unique Users</p>
+              <Typography variant="caption">Unique Users</Typography>
             </div>
           </div>
         </div>
         <div className={classes.mapContainer}>
           <div className={classes.mapLeftSide}>
             <div className={classes.mapTitleAndLogo}>
-              <i class="fad fa-globe-americas" style={{ fontSize: "6rem" }}></i>
+              <i
+                class="fad fa-globe-americas"
+                style={{ fontSize: "6rem", color: "#336ab6" }}
+              ></i>
               <p className={classes.mapTitle}>Global Clicks by Top Locations</p>
             </div>
             <div className={classes.mapList}>Map List</div>

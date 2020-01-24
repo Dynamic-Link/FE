@@ -9,6 +9,7 @@ import { UserContext } from "../../context/UserContext";
 import Sidebar from "../Sidebar/Sidebar";
 import LinksStyles from "./LinksStyles";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
+import { Typography } from "@material-ui/core";
 
 const Links = props => {
   const classes = LinksStyles();
@@ -28,14 +29,16 @@ const Links = props => {
       <div className={classes.container}>
         <div>
           <Breadcrumb className={classes.breadcrumbBackground}>
-            <BreadcrumbItem active>All Links</BreadcrumbItem>
+            <BreadcrumbItem active>
+              <Typography variant="h2">All Links</Typography>
+            </BreadcrumbItem>
           </Breadcrumb>
         </div>
 
         <div className={classes.topBar}>
           <div className={classes.addButton}>
             <button className={classes.newLinkButton} onClick={() => newLink()}>
-              Create New Link
+              <Typography variant="button">Create New Link</Typography>
             </button>
           </div>
           <div className={classes.searchContainer}>
@@ -74,7 +77,10 @@ const Links = props => {
         {user
           ? user[0].links.map(link => {
               return (
-                <div className={classes.linkBoxContainer}>
+                <div
+                  className={classes.linkBoxContainer}
+                  onClick={() => console.log(link.linkName)}
+                >
                   <span className={classes.hoveredBox}></span>
                   <div className={classes.linkBox}>
                     <h2 className={classes.linkName}>{link.linkName}</h2>
