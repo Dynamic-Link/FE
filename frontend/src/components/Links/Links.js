@@ -71,7 +71,21 @@ const Links = props => {
                 {sort}
               </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem onClick={() => setSort("Link Name")}>
+                <DropdownItem
+                  onClick={() => {
+                    setSort("Link Name")
+                    const sorted = data.sort(function(a, b) {
+                      if (a.linkName < b.linkName) {
+                        return -1
+                      }
+                      if (a.linkName > b.linkName) {
+                        return 1
+                      }
+                      return 0
+                    })
+                    setData(sorted)
+                  }}
+                >
                   Link Name
                 </DropdownItem>
                 <DropdownItem onClick={() => setSort("Total Clicks")}>

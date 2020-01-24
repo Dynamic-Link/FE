@@ -1,8 +1,8 @@
-import React from "react";
-import StepOneStyles from "./StepOneStyles";
+import React from "react"
+import StepOneStyles from "./StepOneStyles"
 
 const AddLinkStepOne = ({ updateStep, linkInfo, handleFormChange }) => {
-  const classes = StepOneStyles();
+  const classes = StepOneStyles()
 
   return (
     <div className={classes.container}>
@@ -48,9 +48,9 @@ const AddLinkStepOne = ({ updateStep, linkInfo, handleFormChange }) => {
             </p>
             <input
               type="text"
-              name="promotion"
+              name="promotions"
               className={classes.inputText}
-              value={linkInfo.promotion}
+              value={linkInfo.promotions}
               onChange={handleFormChange}
             />
           </div>
@@ -69,7 +69,7 @@ const AddLinkStepOne = ({ updateStep, linkInfo, handleFormChange }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AddLinkStepOne;
+export default AddLinkStepOne

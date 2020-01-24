@@ -3,10 +3,10 @@ import ReactDOM from "react-dom"
 import Fuse from "fuse.js"
 
 const keys = {
-  LINKNAME: "linkName",
-  TITLE: "title"
+  LINKNAME: "linkName"
+  // PROMOTIONS: "promotions"
 }
-const { LINKNAME, TITLE } = keys
+const { LINKNAME } = keys
 
 const fuseOptions = {
   shouldSort: true,
@@ -15,7 +15,7 @@ const fuseOptions = {
   distance: 50,
   maxPatternLength: 12,
   minMatchCharLength: 3,
-  keys: [LINKNAME, TITLE]
+  keys: [LINKNAME]
 }
 
 class FuzzySearch extends Component {

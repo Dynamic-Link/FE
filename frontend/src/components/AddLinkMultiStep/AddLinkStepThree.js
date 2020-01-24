@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
-import axios from "axios";
-import StepThreeStyles from "./StepThreeStyles";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react"
+import { UserContext } from "../../context/UserContext"
+import axios from "axios"
+import StepThreeStyles from "./StepThreeStyles"
+import { Link } from "react-router-dom"
 
 const AddLinkStepThree = ({
   updateStep,
@@ -10,11 +10,11 @@ const AddLinkStepThree = ({
   subDestination,
   setSubDestination
 }) => {
-  const classes = StepThreeStyles();
-  const { baseURL } = useContext(UserContext);
+  const classes = StepThreeStyles()
+  const { baseURL } = useContext(UserContext)
 
   const addLink = linkObj => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token")
     const {
       linkName,
       product,
@@ -22,7 +22,8 @@ const AddLinkStepThree = ({
       utmParameters,
       promotions,
       notes
-    } = linkObj;
+    } = linkObj
+
     axios
       .post(
         `${baseURL}/api/links`,
@@ -42,13 +43,13 @@ const AddLinkStepThree = ({
         }
       )
       .then(res => {
-        console.log(res);
+        console.log(res)
         // props.history.push("/links");
       })
       .catch(err => {
-        console.log(err);
-      });
-  };
+        console.log(err)
+      })
+  }
 
   return (
     <div className={classes.container}>
@@ -61,7 +62,7 @@ const AddLinkStepThree = ({
           <button
             className={classes.createButton}
             onClick={() => {
-              addLink(linkInfo);
+              addLink(linkInfo)
             }}
           >
             Create Link
@@ -93,7 +94,7 @@ const AddLinkStepThree = ({
         <div
           className={classes.newSubDestination}
           onClick={() => {
-            setSubDestination(true);
+            setSubDestination(true)
           }}
         >
           <p className={classes.subDestinationText}>New Sub-Destination</p>
@@ -101,7 +102,7 @@ const AddLinkStepThree = ({
         {subDestination ? <div>opened</div> : <div>closed</div>}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AddLinkStepThree;
+export default AddLinkStepThree

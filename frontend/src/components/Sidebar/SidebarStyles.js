@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core"
 
 const SidebarStyles = makeStyles(theme => ({
   container: {
@@ -8,7 +8,8 @@ const SidebarStyles = makeStyles(theme => ({
     flexDirection: "column",
     alignItems: "center",
     padding: "10px 0px",
-    borderRight: "1px solid black"
+    borderRight: "1px solid black",
+    position: "fixed"
   },
   logoContainer: {
     display: "flex",
@@ -76,6 +77,6 @@ const SidebarStyles = makeStyles(theme => ({
     bottom: "3rem",
     fontSize: "1.3rem"
   }
-}));
+}))
 
-export default SidebarStyles;
+export default SidebarStyles
