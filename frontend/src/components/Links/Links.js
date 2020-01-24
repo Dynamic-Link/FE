@@ -11,39 +11,21 @@ import LinksStyles from "./LinksStyles"
 import { Button } from "reactstrap"
 import { Breadcrumb, BreadcrumbItem } from "reactstrap"
 import { LinkItem } from "./LinkItem"
-import Fuse from "fuse.js"
-
-const keys = {
-  LINKNAME: "linkName"
-}
-const { LINKNAME } = keys
-const fuseOptions = {
-  shouldSort: true,
-  threshold: 0.4,
-  location: 0,
-  distance: 50,
-  maxPatternLength: 12,
-  minMatchCharLength: 3,
-  keys: [LINKNAME]
-}
+import FuzzySearch from "../FuzzySearch/FuzzySearch"
 
 const Links = props => {
   const classes = LinksStyles()
   const { user, setUser } = useContext(UserContext)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [sort, setSort] = useState("Link Name")
-  const [query, setQuery] = useState("")
-  const links = user && user[0].links
-  const fuse = new Fuse(links, fuseOptions)
-  const data = query ? fuse.search(query) : links
-  console.log("data --->", data)
-  console.log("fuse.search(query) --->", fuse.search(query))
 
-  const onChange = e => {
-    const { target = {} } = e
-    const { value = "" } = target
-    setQuery({ query: value })
-  }
+  const links = user && user[0].links
+  const [blogs, setBlogs] = useState([])
+  const [data, setData] = useState([])
+  useEffect(() => {
+    setBlogs(links)
+    setData(links)
+  }, [links])
 
   const toggle = () => setDropdownOpen(prevState => !prevState)
   const newLink = () => {
@@ -71,12 +53,13 @@ const Links = props => {
             </Button>
           </div>
           <div className={classes.searchContainer}>
-            <input
+            {/* <input
               // type="search"
               placeholder="Search"
               onChange={onChange}
               className={classes.searchInput}
-            />
+            /> */}
+            <FuzzySearch blogs={blogs} setData={setData} />
           </div>
 
           <div className={classes.sortList}>
@@ -103,9 +86,8 @@ const Links = props => {
             </Dropdown>
           </div>
         </div>
-
-        {links &&
-          links.map((link, i) => {
+        {data &&
+          data.map((link, i) => {
             return <LinkItem key={i} link={link} classes={classes} />
           })}
       </div>
