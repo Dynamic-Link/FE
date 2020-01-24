@@ -34,19 +34,19 @@ const Sidebar = props => {
         <Link to="/" style={{ textDecoration: "none" }}>
           <div className={classes.tab}>
             <i class="fad fa-chart-area"></i>
-            <Typography className={classes.tabText}>Dashboard</Typography>
+            <p className={classes.tabText}>Dashboard</p>
           </div>
         </Link>
         <Link to="/links" style={{ textDecoration: "none" }}>
           <div className={classes.tab}>
             <i class="fad fa-link" />
-            <Typography className={classes.tabText}>All Links</Typography>
+            <p className={classes.tabText}>All Links</p>
           </div>
         </Link>
         <Link to="/products" style={{ textDecoration: "none" }}>
           <div className={classes.tab}>
             <i class="fad fa-layer-group"></i>
-            <Typography className={classes.tabText}>Product List</Typography>
+            <p className={classes.tabText}>Product List</p>
           </div>
         </Link>
       </div>
