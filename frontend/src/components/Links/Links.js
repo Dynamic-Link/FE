@@ -1,27 +1,36 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react"
 import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem
-} from "reactstrap";
-import { UserContext } from "../../context/UserContext";
-import Sidebar from "../Sidebar/Sidebar";
-import LinksStyles from "./LinksStyles";
-import { Breadcrumb, BreadcrumbItem } from "reactstrap";
-import { Typography } from "@material-ui/core";
-
+} from "reactstrap"
+import { UserContext } from "../../context/UserContext"
+import Sidebar from "../Sidebar/Sidebar"
+import LinksStyles from "./LinksStyles"
+import { Button } from "reactstrap"
+import { Breadcrumb, BreadcrumbItem } from "reactstrap"
+import { LinkItem } from "./LinkItem"
+import FuzzySearch from "../FuzzySearch/FuzzySearch"
+import { Typography } from "@material-ui/core"
 const Links = props => {
-  const classes = LinksStyles();
-  const { user } = useContext(UserContext);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [sort, setSort] = useState("Link Name");
+  const classes = LinksStyles()
+  const { user, setUser } = useContext(UserContext)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [sort, setSort] = useState("Link Name")
 
-  const toggle = () => setDropdownOpen(prevState => !prevState);
+  const links = user && user[0].links
+  const [blogs, setBlogs] = useState([])
+  const [data, setData] = useState([])
+  useEffect(() => {
+    setBlogs(links)
+    setData(links)
+  }, [links])
 
+  const toggle = () => setDropdownOpen(prevState => !prevState)
   const newLink = () => {
-    props.history.push("/addLink");
-  };
+    props.history.push("/addLink")
+  }
 
   return (
     <div className={classes.pageContainer}>
@@ -42,11 +51,13 @@ const Links = props => {
             </button>
           </div>
           <div className={classes.searchContainer}>
-            <input
-              type="search"
+            {/* <input
+              // type="search"
               placeholder="Search"
+              onChange={onChange}
               className={classes.searchInput}
-            />
+            /> */}
+            <FuzzySearch blogs={blogs} setData={setData} />
           </div>
 
           <div className={classes.sortList}>
@@ -73,34 +84,14 @@ const Links = props => {
             </Dropdown>
           </div>
         </div>
-        {console.log(user)}
-        {user
-          ? user[0].links.map(link => {
-              return (
-                <div
-                  className={classes.linkBoxContainer}
-                  onClick={() => console.log(link.linkName)}
-                >
-                  <span className={classes.hoveredBox}></span>
-                  <div className={classes.linkBox}>
-                    <h2 className={classes.linkName}>{link.linkName}</h2>
-
-                    <p>Default URL: {link.defaultUrl}</p>
-                    <p>Promotions: {link.promotions}</p>
-                    <div className={classes.clicksAndUsers}>
-                      <p className={classes.notes}>Notes: {link.notes}</p>
-                      <p>Total Clicks</p>
-                      <p>Unique Users</p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })
-          : null}
+        {data &&
+          data.map((link, i) => {
+            return <LinkItem key={i} link={link} classes={classes} />
+          })}
       </div>
     </div>
-  );
-};
+  )
+}
 
 // User: {
 //   name: name
@@ -111,4 +102,4 @@ const Links = props => {
 
 // Links: Link to users id
 
-export default Links;
+export default Links
