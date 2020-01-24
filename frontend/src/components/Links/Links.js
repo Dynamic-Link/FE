@@ -12,7 +12,7 @@ import { Button } from "reactstrap"
 import { Breadcrumb, BreadcrumbItem } from "reactstrap"
 import { LinkItem } from "./LinkItem"
 import FuzzySearch from "../FuzzySearch/FuzzySearch"
-
+import { Typography } from "@material-ui/core"
 const Links = props => {
   const classes = LinksStyles()
   const { user, setUser } = useContext(UserContext)
@@ -38,19 +38,17 @@ const Links = props => {
       <div className={classes.container}>
         <div>
           <Breadcrumb className={classes.breadcrumbBackground}>
-            <BreadcrumbItem active>All Links</BreadcrumbItem>
+            <BreadcrumbItem active>
+              <Typography variant="h2">All Links</Typography>
+            </BreadcrumbItem>
           </Breadcrumb>
         </div>
 
         <div className={classes.topBar}>
           <div className={classes.addButton}>
-            <Button
-              color="success"
-              className={classes.newLinkButton}
-              onClick={() => newLink()}
-            >
-              Create New Link
-            </Button>
+            <button className={classes.newLinkButton} onClick={() => newLink()}>
+              <Typography variant="button">Create New Link</Typography>
+            </button>
           </div>
           <div className={classes.searchContainer}>
             {/* <input

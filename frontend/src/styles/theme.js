@@ -5,18 +5,18 @@ const useTheme = {
     h1: {
       fontSize: "3rem",
       letterSpacing: "1.5px",
-      color: "#006FD7"
+      color: "#121212"
     },
     h2: {
-      fontSize: "2rem",
+      fontSize: "2.4rem",
+      color: "#121212",
       fontWeight: "500",
-      color: "#006FD7",
       letterSpacing: ".2rem"
     },
     h3: {
       fontSize: "1.6rem",
       fontWeight: "500",
-      color: "#006fd7",
+      color: "#121212",
       letterSpacing: ".2rem"
     },
     h4: {
@@ -27,10 +27,16 @@ const useTheme = {
       fontSize: "1.4rem"
     },
     button: {
-      fontSize: "1.6rem",
-      letterSpacing: ".1rem",
-      fontWeight: "600",
+      fontSize: "1.5rem",
+      letterSpacing: ".125rem",
+      lineHeight: "3rem",
       textDecoration: "none"
+    },
+    caption: {
+      fontSize: "1.3rem",
+      letterSpacing: "0.4px",
+      lineHeight: "1.6rem",
+      color: "#595959"
     },
     //subtitle2 is for errors
     subtitle2: {

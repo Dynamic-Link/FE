@@ -13,6 +13,7 @@ import {
   Button
 } from "reactstrap";
 import { Typography } from "@material-ui/core";
+import signInImage from "./../../images/signIn.svg";
 
 import RegistrationStyles from "./RegistrationStyles";
 
@@ -73,7 +74,7 @@ const SignIn = props => {
         </div>
       </div>
       <Container className={classes.container}>
-        <div className={classes.circle}></div>
+        <img src={signInImage} alt="signIn" className={classes.image} />
         <div className={classes.formContainer}>
           <Typography variant="h1" className={classes.formTitle}>
             Sign In
