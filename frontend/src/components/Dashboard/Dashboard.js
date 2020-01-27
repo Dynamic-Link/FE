@@ -32,7 +32,7 @@ const Dashboard = props => {
         <div className={classes.statBoxContainer}>
           <div className={classes.statBox}>
             <i
-              class="fad fa-link"
+              className="fad fa-link"
               style={{
                 fontSize: "4.5rem",
                 gridColumn: "1/3",
@@ -49,7 +49,7 @@ const Dashboard = props => {
           </div>
           <div className={classes.statBox}>
             <i
-              class="fad fa-bullseye-pointer"
+              className="fad fa-bullseye-pointer"
               style={{
                 fontSize: "4.5rem",
                 gridColumn: "1/3",
@@ -64,7 +64,7 @@ const Dashboard = props => {
           </div>
           <div className={classes.statBox}>
             <i
-              class="fad fa-users"
+              className="fad fa-users"
               style={{
                 fontSize: "4.5rem",
                 gridColumn: "1/3",
@@ -82,7 +82,7 @@ const Dashboard = props => {
           <div className={classes.mapLeftSide}>
             <div className={classes.mapTitleAndLogo}>
               <i
-                class="fad fa-globe-americas"
+                className="fad fa-globe-americas"
                 style={{ fontSize: "6rem", color: "#336ab6" }}
               ></i>
               <p className={classes.mapTitle}>Global Clicks by Top Locations</p>

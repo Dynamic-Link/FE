@@ -33,19 +33,19 @@ const Sidebar = props => {
       <div className={classes.tabsSection}>
         <Link to="/" style={{ textDecoration: "none" }}>
           <div className={classes.tab}>
-            <i class="fad fa-chart-area"></i>
+            <i className="fad fa-chart-area"></i>
             <p className={classes.tabText}>Dashboard</p>
           </div>
         </Link>
         <Link to="/links" style={{ textDecoration: "none" }}>
           <div className={classes.tab}>
-            <i class="fad fa-link" />
+            <i className="fad fa-link" />
             <p className={classes.tabText}>All Links</p>
           </div>
         </Link>
         <Link to="/products" style={{ textDecoration: "none" }}>
           <div className={classes.tab}>
-            <i class="fad fa-layer-group"></i>
+            <i className="fad fa-layer-group"></i>
             <p className={classes.tabText}>Product List</p>
           </div>
         </Link>
