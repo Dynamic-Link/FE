@@ -1,14 +1,22 @@
-import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import { UserContext } from "./../../context/UserContext";
-import Sidebar from "../Sidebar/Sidebar";
-import DashboardStyles from "./DashboardStyles";
-import { Typography } from "@material-ui/core";
-import { Breadcrumb, BreadcrumbItem } from "reactstrap";
+import React, { useState, useEffect, useContext } from "react"
+import axios from "axios"
+import { UserContext } from "./../../context/UserContext"
+import Sidebar from "../Sidebar/Sidebar"
+import DashboardStyles from "./DashboardStyles"
+import { Typography } from "@material-ui/core"
+import { Breadcrumb, BreadcrumbItem } from "reactstrap"
 
 const Dashboard = props => {
-  const classes = DashboardStyles();
-  const { user } = useContext(UserContext);
+  const classes = DashboardStyles()
+  const { user, baseURL, setUser } = useContext(UserContext)
+  useEffect(() => {
+    axios
+      .get(`${baseURL}/api/user`)
+      .then(res => {
+        setUser(res.data)
+      })
+      .catch(err => console.log(err))
+  }, [])
 
   return (
     <div className={classes.pageContainer}>
@@ -87,7 +95,7 @@ const Dashboard = props => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

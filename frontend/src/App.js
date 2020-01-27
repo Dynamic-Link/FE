@@ -16,44 +16,28 @@ import { UserContext } from "./context/UserContext"
 import { ThemeProvider } from "@material-ui/styles"
 import { createMuiTheme } from "@material-ui/core"
 import useTheme from "./styles/theme"
+import PrivateRoute from "./components/PrivateRoute/index"
 
-// import Header from "../Header/Header";
-// import Footer from "../Footer/Footer";
 const App = () => {
   const [user, setUser] = useState("")
-  // const [clicked, setClicked] = useState(0);
   const baseURL = "https://dynamic-link.herokuapp.com"
   const theme = createMuiTheme(useTheme)
-  const token = localStorage.getItem("token")
-  useEffect(() => {
-    axios
-      .get(`${baseURL}/api/user`, {
-        headers: { Authorization: `${token}` }
-      })
-      .then(res => {
-        setUser(res.data)
-        console.log(res.data)
-      })
-      .catch(err => console.log(err))
-  }, [])
 
   return (
-    // <Header />
     <Router>
       <ThemeProvider theme={theme}>
         <Switch>
           <UserContext.Provider value={{ user, setUser, baseURL }}>
-            <Route exact path="/" component={Dashboard} />
+            <PrivateRoute exact path="/" component={Dashboard} />
             <Route path="/signIn" component={SignIn} />
             <Route path="/signUp" component={SignUp} />
-            <Route path="/addLink" component={AddLinkMultiStep} />
-            <Route path="/links" component={Links} />
-            <Route path="/products" component={Products} />
+            <PrivateRoute path="/addLink" component={AddLinkMultiStep} />
+            <PrivateRoute path="/links" component={Links} />
+            <PrivateRoute path="/products" component={Products} />
           </UserContext.Provider>
         </Switch>
       </ThemeProvider>
     </Router>
-    // <Footer />
   )
 }
 
