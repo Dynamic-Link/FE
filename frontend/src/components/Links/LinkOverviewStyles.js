@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core"
 
 const LinkOverviewStyles = makeStyles(theme => ({
   pageContainer: {
@@ -72,6 +72,6 @@ const LinkOverviewStyles = makeStyles(theme => ({
       }
     }
   }
-}));
+}))
 
-export default LinkOverviewStyles;
+export default LinkOverviewStyles

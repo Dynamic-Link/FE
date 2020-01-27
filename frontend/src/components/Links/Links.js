@@ -107,13 +107,4 @@ const Links = props => {
   )
 }
 
-// User: {
-//   name: name
-//   links: [
-//     arrayIds
-//   ]
-// }
-
-// Links: Link to users id
-
 export default Links
