@@ -1,18 +1,18 @@
-import React, { useState, useContext } from "react";
-import { Typography } from "@material-ui/core";
-import { Button } from "reactstrap";
-import SidebarStyles from "./SidebarStyles";
-import { UserContext } from "../../context/UserContext";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react"
+import { Typography } from "@material-ui/core"
+import { Button } from "reactstrap"
+import SidebarStyles from "./SidebarStyles"
+import { UserContext } from "../../context/UserContext"
+import { Link, withRouter } from "react-router-dom"
 
 const Sidebar = props => {
-  const { user } = useContext(UserContext);
+  const { user } = useContext(UserContext)
 
-  const classes = SidebarStyles();
+  const classes = SidebarStyles()
   const logout = () => {
-    localStorage.removeItem("token");
-    props.history.push("/signIn");
-  };
+    localStorage.removeItem("token")
+    props.history.push("/signIn")
+  }
 
   return user[0] ? (
     <div className={classes.container}>
@@ -58,7 +58,7 @@ const Sidebar = props => {
         Sign Out
       </Button>
     </div>
-  ) : null;
-};
+  ) : null
+}
 
-export default Sidebar;
+export default withRouter(Sidebar)
