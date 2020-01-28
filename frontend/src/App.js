@@ -12,7 +12,6 @@ import AddLinkMultiStep from "./components/AddLinkMultiStep/AddLinkMultiStep"
 import axios from "axios"
 
 import { UserContext } from "./context/UserContext"
-
 import { ThemeProvider } from "@material-ui/styles"
 import { createMuiTheme } from "@material-ui/core"
 import useTheme from "./styles/theme"
@@ -31,9 +30,9 @@ const App = () => {
             <PrivateRoute exact path="/" component={Dashboard} />
             <Route path="/signIn" component={SignIn} />
             <Route path="/signUp" component={SignUp} />
-            <PrivateRoute path="/addLink" component={AddLinkMultiStep} />
-            <PrivateRoute path="/links" component={Links} />
-            <PrivateRoute path="/products" component={Products} />
+            <Route path="/addLink" component={AddLinkMultiStep} />
+            <Route path="/links" component={Links} />
+            <Route path="/products" component={Products} />
           </UserContext.Provider>
         </Switch>
       </ThemeProvider>

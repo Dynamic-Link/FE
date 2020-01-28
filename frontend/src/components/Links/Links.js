@@ -22,6 +22,7 @@ const Links = props => {
   const links = user && user[0].links
   const [blogs, setBlogs] = useState([])
   const [data, setData] = useState([])
+
   useEffect(() => {
     setBlogs(links)
     setData(links)

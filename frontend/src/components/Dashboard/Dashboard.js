@@ -5,6 +5,7 @@ import Sidebar from "../Sidebar/Sidebar"
 import DashboardStyles from "./DashboardStyles"
 import { Typography } from "@material-ui/core"
 import { Breadcrumb, BreadcrumbItem } from "reactstrap"
+import { Route } from "react-router-dom"
 
 const Dashboard = props => {
   const classes = DashboardStyles()
