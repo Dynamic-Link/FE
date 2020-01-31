@@ -46,13 +46,19 @@ const LinksStyles = makeStyles(theme => ({
       }
     }
   },
+  link: {
+    "&:hover": {
+      textDecoration: "none"
+    }
+  },
   linkBox: {
     backgroundColor: "#f7f8fa",
     boxShadow: "0px 2px 4px rgba(14,30,37,0.12)",
     padding: "1.2rem",
     marginBottom: "2rem",
     borderRadius: "3px 0px 0px 3px",
-    width: "100%"
+    width: "100%",
+    color: "black"
   },
 
   linkName: {

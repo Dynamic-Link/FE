@@ -1,36 +1,35 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext, useState, useEffect } from "react";
 import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem
-} from "reactstrap"
-import { UserContext } from "../../context/UserContext"
-import Sidebar from "../Sidebar/Sidebar"
-import LinksStyles from "./LinksStyles"
-import { Button } from "reactstrap"
-import { Breadcrumb, BreadcrumbItem } from "reactstrap"
-import { LinkItem } from "./LinkItem"
-import FuzzySearch from "../FuzzySearch/FuzzySearch"
-import { Typography } from "@material-ui/core"
+} from "reactstrap";
+import { UserContext } from "../../context/UserContext";
+import Sidebar from "../Sidebar/Sidebar";
+import LinksStyles from "./LinksStyles";
+import { Breadcrumb, BreadcrumbItem } from "reactstrap";
+import { LinkItem } from "./LinkItem";
+import FuzzySearch from "../FuzzySearch/FuzzySearch";
+import { Typography } from "@material-ui/core";
 const Links = props => {
-  const classes = LinksStyles()
-  const { user, setUser } = useContext(UserContext)
-  const [dropdownOpen, setDropdownOpen] = useState(false)
-  const [sort, setSort] = useState("Link Name")
+  const classes = LinksStyles();
+  const { user, setUser } = useContext(UserContext);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [sort, setSort] = useState("Link Name");
 
-  const links = user && user[0].links
-  const [blogs, setBlogs] = useState([])
-  const [data, setData] = useState([])
+  const links = user && user[0].links;
+  const [blogs, setBlogs] = useState([]);
+  const [data, setData] = useState([]);
   useEffect(() => {
-    setBlogs(links)
-    setData(links)
-  }, [links])
+    setBlogs(links);
+    setData(links);
+  }, [links]);
 
-  const toggle = () => setDropdownOpen(prevState => !prevState)
+  const toggle = () => setDropdownOpen(prevState => !prevState);
   const newLink = () => {
-    props.history.push("/addLink")
-  }
+    props.history.push("/addLink");
+  };
 
   return (
     <div className={classes.pageContainer}>
@@ -86,12 +85,12 @@ const Links = props => {
         </div>
         {data &&
           data.map((link, i) => {
-            return <LinkItem key={i} link={link} classes={classes} />
+            return <LinkItem key={i} link={link} classes={classes} />;
           })}
       </div>
     </div>
-  )
-}
+  );
+};
 
 // User: {
 //   name: name
@@ -102,4 +101,4 @@ const Links = props => {
 
 // Links: Link to users id
 
-export default Links
+export default Links;

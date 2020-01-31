@@ -11,52 +11,48 @@ const LinkOverviewStyles = makeStyles(theme => ({
     backgroundColor: "rgb(240, 240, 240)",
     borderRight: "1px solid black"
   },
-  newLinkButton: {
-    fontSize: "1.4rem",
-    padding: "0.5rem 2rem"
-  },
-  topBar: {
-    display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
-    marginBottom: "2rem"
-  },
-  addButton: {
-    gridColumn: "1/2"
-  },
-  linkBox: {
-    border: "1px solid darkgray",
-    padding: "1.2rem",
-    marginBottom: "2rem",
-    backgroundColor: "white"
-  },
-  linkName: {
-    fontSize: "2.4rem"
-  },
-  clicksAndUsers: {
-    display: "grid",
-    gridTemplateColumns: "repeat(6,1fr)"
-  },
-  notes: {
-    gridColumn: "1/5"
-  },
-  searchContainer: {
-    gridColumn: "3/4",
-    display: "flex"
-  },
-  searchInput: {
+  topBar: { marginBottom: "4rem" },
+  overviewAndDestinations: {
     display: "flex",
-    width: "70%"
+    fontSize: "1.6rem",
+    fontWeight: "500",
+    color: "#121212"
   },
-  sortList: {
-    display: "flex",
-    alignItems: "center",
-    gridColumn: "4/5",
-    justifyContent: "flex-end"
+  overviewText: {
+    marginRight: "2rem",
+    color: "#cd9c9c",
+    borderBottom: "2px solid rgb(240, 240, 240)",
+    "&:active": {
+      color: "#811810"
+    },
+    "&:hover": {
+      color: "#811810",
+      cursor: "pointer",
+      borderBottom: "2px solid #811810"
+    }
   },
-  sortBy: {
+  destinationsText: {
+    color: "#cd9c9c",
+    borderBottom: "2px solid rgb(240, 240, 240)",
+    "&:active": {
+      color: "#811810"
+    },
+    "&:hover": {
+      color: "#811810",
+      cursor: "pointer",
+      borderBottom: "2px solid #811810"
+    }
+  },
+
+  linkURL: {
+    color: "black",
     fontSize: "1.8rem",
-    marginRight: "1rem"
+    marginBottom: "3rem",
+    "&:hover": {
+      textDecoration: "none"
+    }
   },
+
   breadcrumbBackground: {
     "& ol": {
       backgroundColor: "#f2f2f2",
@@ -71,6 +67,59 @@ const LinkOverviewStyles = makeStyles(theme => ({
         }
       }
     }
+  },
+  pastBreadcrumb: {
+    color: "lightgray",
+    "&:hover": {
+      color: "lightgray"
+    }
+  },
+  bodyContainer: {
+    border: "1px solid red"
+  },
+  bodySectionOne: {
+    border: "1px solid blue",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center"
+  },
+  linkInfoBox: {
+    boxShadow: "0px 2px 4px rgba(14,30,37,0.12)",
+    backgroundColor: "#f7f8fa",
+    width: "70%",
+    position: "relative",
+    padding: "1rem"
+  },
+  infoText: {
+    display: "flex",
+    alignItems: "center"
+  },
+  infoCaption: {
+    color: "#595959",
+    fontSize: "1.3rem"
+  },
+  linkInfo: {
+    fontSize: "1.3rem",
+    margin: "1rem 0rem 1rem 1rem"
+  },
+  editButton: {
+    backgroundColor: "#f7f8fa",
+    display: "flex",
+    border: "1px solid #e2e2ea",
+    color: "#006fd7",
+    borderRadius: "5px",
+    padding: "1rem 2rem",
+    fontSize: "1.6rem",
+    position: "absolute",
+    top: "1rem",
+    right: "2rem",
+    "&:hover": {
+      backgroundColor: "#f2f2f2",
+      border: "1px solid #9caccd"
+    }
+  },
+  editText: {
+    marginLeft: "1.5rem"
   }
 }));
 

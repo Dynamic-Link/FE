@@ -9,6 +9,7 @@ import Links from "./components/Links/Links";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Products from "./components/Products/Products";
 import AddLinkMultiStep from "./components/AddLinkMultiStep/AddLinkMultiStep";
+import LinkOverview from "./components/Links/LinkOverview";
 import axios from "axios";
 
 import { UserContext } from "./context/UserContext";
@@ -50,8 +51,9 @@ const App = () => {
             <Route path="/signIn" component={SignIn} />
             <Route path="/signUp" component={SignUp} />
             <Route path="/addLink" component={AddLinkMultiStep} />
-            <Route path="/links" component={Links} />
+            <Route exact path="/links" component={Links} />
             <Route path="/products" component={Products} />
+            <Route path="/links/:id" component={LinkOverview} />
           </UserContext.Provider>
         </Switch>
       </ThemeProvider>
