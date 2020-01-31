@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const LinkItem = ({ classes, link }) => {
   return (
-    <Link to={`/links/${link.id}`} style={{ color: "black" }}>
+    <Link to={`/links/${link.id}`} className={classes.link}>
       <div className={classes.linkBoxContainer}>
         <span></span>
         <div className={classes.linkBox}>
